@@ -1,0 +1,17 @@
+﻿<Window x:Class="Starter.Help"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+         Title="Help" Background="Transparent" MouseLeftButtonDown="Window_MouseLeftButtonDown_1" AllowsTransparency="True" ShowInTaskbar="False" Height="280" WindowStyle="None" Width="380">
+    <Border Name="border" Background="Black" BorderThickness="0" CornerRadius="20">
+        <Grid>
+            <Image Name="closebutton" MouseLeftButtonUp="closebutton_MouseLeftButtonUp_1"  MouseEnter="closebutton_MouseEnter_1"  MouseLeave="closebutton_MouseLeave_1"  MouseLeftButtonDown="closebutton_MouseLeftButtonDown_1"  Width="40" Height="20" HorizontalAlignment="Right" Margin="0,12,15,0" VerticalAlignment="Top"/>
+            <Label Content="想放什么直接拖进来哦！" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,40,0,0" Foreground="#FFF7EFEF"/>
+            <Label Content="不妨试试Alt+Q" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,70,0,0" Foreground="#FFF7EFEF"/>
+            <Label Content="右键菜单满足更多需求！！" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,100,0,0" Foreground="#FFF7EFEF"/>
+            <Label Content="持续完善中...欢迎提出宝贵建议" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,130,0,0" Foreground="#FFF7EFEF"/>
+            <Label Content="软件会自动记录异常，您可以把日志" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,160,0,0" Foreground="#FFF7EFEF"/>
+            <Label Content="发送给我以帮助解决问题。" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,175,0,0" Foreground="#FFF7EFEF"/>
+            <Button Name="ook" Style="{StaticResource btn}" Click="ook_Click_1" Content="知道了" HorizontalAlignment="Center" Margin="0,0,0,20" VerticalAlignment="Bottom" Width="75" Height="22"/>
+        </Grid>
+    </Border>
+</Window>

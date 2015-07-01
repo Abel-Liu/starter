@@ -1,0 +1,56 @@
+﻿<Window x:Class="Starter.About"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+         Title="About" Height="280" Width="380" WindowStyle="None" Loaded="Window_Loaded_1"  ShowInTaskbar="False" MouseLeftButtonDown="Window_MouseLeftButtonDown_1" Background="Transparent"  AllowsTransparency="True">
+    <Border Name="border" Background="Black" BorderThickness="0" CornerRadius="7">
+        <Grid>
+            <Image Name="closebutton" MouseLeftButtonUp="closebutton_MouseLeftButtonUp"  MouseEnter="closebutton_MouseEnter"  MouseLeave="closebutton_MouseLeave"  MouseLeftButtonDown="closebutton_MouseLeftButtonDown"  Width="40" Height="20" HorizontalAlignment="Right" Margin="0,5,5,0" VerticalAlignment="Top"/>
+            <Button Name="ook" Style="{StaticResource btn}" Click="ook_Click"  Content="确定" HorizontalAlignment="Right" Margin="0,0,15,10" VerticalAlignment="Bottom" Width="70" Height="20"/>
+            <RichTextBox BorderThickness="0" Foreground="White" Background="{x:Null}" Name="richtext" VerticalAlignment="Top" Margin="2,40,0,0" Height="200" Width="360" IsReadOnly="True" HorizontalAlignment="Center" HorizontalContentAlignment="Left" VerticalScrollBarVisibility="Auto">
+                <FlowDocument>
+                    <Paragraph>
+                        <Run Text="      软件版本：1.0.2.0"/>
+                    </Paragraph>
+                    <Paragraph>
+                        <Run Text="      作者：Abel  （Abel777@qq.com）"/>
+                    </Paragraph>
+                    <Paragraph>
+                        <Run Text="      易启小组 版权所有"/>
+                    </Paragraph>
+                    <Paragraph>
+                        <Run Text="      易启官网："/>
+                        <Hyperlink Name="link" PreviewMouseLeftButtonDown="link_PreviewMouseLeftButtonDown" Cursor="Hand">www.easystarter.icoc.cc</Hyperlink>
+                    </Paragraph>
+                    <Paragraph>
+                        <Run Text="      欢迎学习交流，请勿用作其他用途。"/>
+                    </Paragraph>
+                    <Paragraph>
+                        <Run Text="      EasyStarter（别名易启）是易启小组出品的桌面管理软件，用户在遵守法律的前提下可使用本软件。但是，用户无权实施包括但不限于下列行为： "/>
+                    </Paragraph>
+                    <Paragraph>
+                        <Run Text="      1 删除本软件及其他副本上所有关于商标、著作权等权属信息及内容。"/>
+                    </Paragraph>
+                    <Paragraph>
+                        <Run Text="      2 对本软件进行反向工程、反向汇编、反向编译等。"/>
+                    </Paragraph>
+                    <Paragraph>
+                        <Run Text="      3 对于本软件相关信息等，未经易启书面同意，用户擅自实施包括但不限于下列行为：出租、出借、复制、修改、汇编、发表、出版，建立镜像站点、擅自借助本软件发展与之有关的衍生产品、作品、服务、插件、外挂、兼容、互联等。"/>
+                    </Paragraph>
+                    <Paragraph>
+                        <Run Text="      4 通过修改或伪造软件作品运行中的指令、数据、数据包，增加、删减、变动软件的功能或运行效果，或将用于上述用途的软件、方法向公众传播或者运营。"/>
+                    </Paragraph>
+                    <Paragraph>
+                        <Run Text="      用户不遵守以上约定所造成的或间接造成的一切后果或由此产生的连锁后果易启不负任何责任。"/>
+                    </Paragraph>
+
+                    <Paragraph>
+                        <Run Text="                                                                      易启小组"/>
+                    </Paragraph>
+                </FlowDocument>
+            </RichTextBox>
+            <Label Content="  关于 EasyStarter" Foreground="Beige"  HorizontalAlignment="Left" Margin="0,5,0,0" VerticalAlignment="Top"/>
+
+        </Grid>
+    </Border>
+</Window>
+

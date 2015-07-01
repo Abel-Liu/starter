@@ -1,0 +1,64 @@
+﻿<Window x:Class="Starter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="EasyStarterByAbelGuaiz" MouseLeftButtonDown="Window_MouseLeftButtonDown" MouseDown="Window_MouseDown_1" PreviewMouseRightButtonDown="Window_PreviewMouseRightButtonDown" Height="430" Width="624" Background="{x:Null}" MouseWheel="Window_MouseWheel" Drop="Window_Drop"  ShowInTaskbar="False"  WindowStyle="None" AllowsTransparency="True" Loaded="Window_Loaded" Closing="Window_Closing" Deactivated="Window_Deactivated" AllowDrop="True">
+    <Window.Resources>
+        <Style x:Key="labelOfMenu" TargetType="Label">
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="Foreground" Value="#FFADACFF"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+    </Window.Resources>
+    <Window.ContextMenu>
+        <ContextMenu>
+            <MenuItem Name="add" Header="添加">
+                <MenuItem Name="addfile" Header="文件" Click="addfile_Click"/>
+                <MenuItem Name="adddir" Header="文件夹" Click="adddir_Click"/>
+            </MenuItem>
+            <MenuItem Name="enterEdit" Header="进入编辑模式" Click="enterEdit_Click"/>
+            <MenuItem Name="removepanle" Header="删除此页" Click="removepanle_Click"/>
+            <MenuItem Name="addpanle" Header="添加新页" Click="addpanle_Click"/>
+        </ContextMenu>
+    </Window.ContextMenu>
+    <Border Name="mainBorder" BorderBrush="DarkGray"  BorderThickness="2" CornerRadius="13">
+        <Grid>
+            <!--菜单-->
+            <Border BorderThickness="0" CornerRadius="10" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,25,95,0" Height="152" Width="70">
+                <StackPanel Name="menugrid" Background="Black" >
+                    <Border BorderThickness="2,1,2,0" MouseEnter="menuItem_MouseEnter" MouseLeave="menuItem_MouseLeave" MouseLeftButtonDown="menuItem_MouseLeftButtonDown" MouseLeftButtonUp="menuItem_MouseLeftButtonUp">
+                        <Label Name="menuSet" Style="{StaticResource labelOfMenu}" Content="设置" MouseLeftButtonUp="menuItemClick" ></Label>
+                    </Border>
+                    <Border BorderThickness="2,0,2,0" MouseEnter="menuItem_MouseEnter" MouseLeave="menuItem_MouseLeave" MouseLeftButtonDown="menuItem_MouseLeftButtonDown" MouseLeftButtonUp="menuItem_MouseLeftButtonUp">
+                        <Label Name="menuImport" Style="{StaticResource labelOfMenu}" Content="导入图标" MouseLeftButtonUp="menuItemClick" ></Label>
+                    </Border>
+                    <Border BorderThickness="2,0,2,0" MouseEnter="menuItem_MouseEnter" MouseLeave="menuItem_MouseLeave" MouseLeftButtonDown="menuItem_MouseLeftButtonDown" MouseLeftButtonUp="menuItem_MouseLeftButtonUp">
+                        <Label Name="menuHelp" Style="{StaticResource labelOfMenu}" Content="帮助" MouseLeftButtonUp="menuItemClick" ></Label>
+                    </Border>
+                    <Border BorderThickness="2,0,2,0" MouseEnter="menuItem_MouseEnter" MouseLeave="menuItem_MouseLeave" MouseLeftButtonDown="menuItem_MouseLeftButtonDown" MouseLeftButtonUp="menuItem_MouseLeftButtonUp">
+                        <Label Name="menuAbout" Style="{StaticResource labelOfMenu}" Content="关于" MouseLeftButtonUp="menuItemClick" ></Label>
+                    </Border>
+                    <Border BorderThickness="2,0,2,0" MouseEnter="menuItem_MouseEnter" MouseLeave="menuItem_MouseLeave" MouseLeftButtonDown="menuItem_MouseLeftButtonDown" MouseLeftButtonUp="menuItem_MouseLeftButtonUp">
+                        <Label Name="menuFeedback" Style="{StaticResource labelOfMenu}" Content="反馈" MouseLeftButtonUp="menuItemClick" ></Label>
+                    </Border>
+                    <Border BorderThickness="2,0,2,1" MouseEnter="menuItem_MouseEnter" MouseLeave="menuItem_MouseLeave" MouseLeftButtonDown="menuItem_MouseLeftButtonDown" MouseLeftButtonUp="menuItem_MouseLeftButtonUp">
+                        <Label Name="menuExit"  Style="{StaticResource labelOfMenu}" Content="退出" MouseLeftButtonUp="menuItemClick" ></Label>
+                    </Border>
+                </StackPanel>
+            </Border>
+
+            <Grid Name="topGrid" VerticalAlignment="Top" HorizontalAlignment="Right" Width="600"  Height="25">
+                <Label Name="label_title" Height="30" Width="100" Content="EasyStarter" FontSize="13" Foreground="#FFADACFF" Margin="0,-3,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                <Image Name="btnskin" ToolTip="换肤" Height="20"   Width="20" Margin="0,0,90,0" HorizontalAlignment="Right" VerticalAlignment="Center" MouseEnter="btnskin_MouseEnter"  MouseLeave="btnskin_MouseLeave" MouseLeftButtonDown="btnskin_MouseLeftButtonDown" MouseLeftButtonUp="btnskin_MouseLeftButtonUp"></Image>
+                <Image Name="btnmenu" ToolTip="菜单" Height="20"   Width="20" Margin="0,0,120,0" HorizontalAlignment="Right" VerticalAlignment="Center" MouseEnter="btnmenu_MouseEnter" MouseLeave="btnmenu_MouseLeave" MouseLeftButtonDown="btnmenu_MouseLeftButtonDown" MouseLeftButtonUp="btnmenu_MouseLeftButtonUp"/>
+                <Image Name="btnedit" ToolTip="进入编辑" Height="20" Width="20" Margin="0,0,60,0" HorizontalAlignment="Right" VerticalAlignment="Center" MouseEnter="btnedit_MouseEnter" MouseLeave="btnedit_MouseLeave" MouseLeftButtonDown="btnedit_MouseLeftButtonDown" MouseLeftButtonUp="btnedit_MouseLeftButtonUp" ></Image>                
+            </Grid>
+            <Grid Name="maingrid"  HorizontalAlignment="Center" Width="600" VerticalAlignment="Bottom" Margin="0,0,0,40" Height="360"></Grid>
+            <Grid Name="pagingGrid" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="500"  Height="30"></Grid>
+
+            <Label Name="labelShutDown" Content="关机" BorderBrush="DarkGray" Width="50" Height="29" Margin="10,0,0,6" Foreground="#FFADACFF" HorizontalAlignment="Left" VerticalAlignment="Bottom" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" MouseEnter="labelShutDown_MouseEnter_1" MouseLeave="labelShutDown_MouseLeave_1" MouseLeftButtonDown="labelShutDown_MouseLeftButtonDown_1" MouseLeftButtonUp="labelShutDown_MouseLeftButtonUp_1"/>
+            <!--<Label Name="labelNext" Content="→" BorderBrush="DarkGray" Width="30" Height="25" Margin="0,0,3,6" Foreground="#FFADACFF" HorizontalAlignment="Right" VerticalAlignment="Bottom" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" MouseEnter="LR_MouseEnter" MouseLeave="LR_MouseLeave" MouseLeftButtonDown="LR_MouseLeftButtonDown" MouseLeftButtonUp="LR_MouseLeftButtonUp"/>
+            <Label Name="labelPre" Content="←" BorderBrush="DarkGray" Width="30" Height="25" Margin="0,0,33,6" Foreground="#FFADACFF" HorizontalAlignment="Right" VerticalAlignment="Bottom" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" MouseEnter="LR_MouseEnter" MouseLeave="LR_MouseLeave" MouseLeftButtonDown="LR_MouseLeftButtonDown" MouseLeftButtonUp="LR_MouseLeftButtonUp"/>-->
+        
+        </Grid>
+    </Border>
+</Window>

@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Config>
+  <Boot>false</Boot>
+  <RightMenu>false</RightMenu>
+  <HotKey>alt+q</HotKey>
+  <BackImg>1</BackImg>
+  <SendBug>false</SendBug>
+</Config>

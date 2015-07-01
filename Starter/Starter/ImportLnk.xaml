@@ -1,0 +1,15 @@
+﻿<Window x:Class="Starter.ImportLnk"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ImportLnk" Height="350" Width="550" Loaded="Window_Loaded_1" WindowStyle="None" Background="{x:Null}" AllowsTransparency="True">
+    <Border Name="main" CornerRadius="10">
+        <Grid>
+            <Grid Height="270" VerticalAlignment="Top">
+
+            </Grid>
+            <Grid>
+
+            </Grid>
+        </Grid>
+    </Border>
+</Window>
