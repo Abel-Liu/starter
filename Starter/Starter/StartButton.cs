@@ -34,23 +34,25 @@ namespace Starter
         {
             InitializeComponent();
 
+            mainwindow = new MainWindow( 6000 );
+            mainwindow.Show();
+
             InitPositionSvc();
         }
 
         void InitPositionSvc()
         {
             Version version = Environment.OSVersion.Version;
-            if (version.Major == 6 && (version.Minor == 0 || version.Minor == 1))
-                positionSvc = new PositionSvcWin7(this.Handle, mainwindow);
+            if ( version.Major == 6 && ( version.Minor == 0 || version.Minor == 1 ) )
+                positionSvc = new PositionSvcWin7( this.Handle, mainwindow );
+            else if ( version.Major == 6 && version.Minor == 3 )
+                positionSvc = new PositionSvcWin10( this.Handle, mainwindow );
             else
-                positionSvc = new PositionBase(this.Handle, mainwindow);
+                positionSvc = new PositionBase( this.Handle, mainwindow );
         }
 
         private void StartButton_Load(object sender, EventArgs e)
         {
-            mainwindow = new MainWindow(6000);
-            mainwindow.Show();
-
             positionSvc.InsertButton();
 
             API.RegisterHotKey(new System.Windows.Interop.WindowInteropHelper(mainwindow).Handle, 100, KeyModifiers.Alt, System.Windows.Forms.Keys.Q);

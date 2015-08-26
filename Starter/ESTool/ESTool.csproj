@@ -95,6 +95,7 @@
     <Compile Include="ESstruct.cs" />
     <Compile Include="FileWork.cs" />
     <Compile Include="Position\PositionBase.cs" />
+    <Compile Include="Position\PositionSvcWin10.cs" />
     <Compile Include="Position\PositionSvcWin7.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegWork.cs" />
