@@ -32,8 +32,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StartButton));
             this.button1 = new System.Windows.Forms.Button();
             this.StartButtonMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.退出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.重置位置ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.退出ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.StartButtonMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,21 +63,21 @@
             this.重置位置ToolStripMenuItem,
             this.退出ToolStripMenuItem});
             this.StartButtonMenu.Name = "StartButtonMenu";
-            this.StartButtonMenu.Size = new System.Drawing.Size(153, 70);
-            // 
-            // 退出ToolStripMenuItem
-            // 
-            this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
-            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.退出ToolStripMenuItem.Text = "退出";
-            this.退出ToolStripMenuItem.Click += new System.EventHandler(this.退出ToolStripMenuItem_Click);
+            this.StartButtonMenu.Size = new System.Drawing.Size(125, 48);
             // 
             // 重置位置ToolStripMenuItem
             // 
             this.重置位置ToolStripMenuItem.Name = "重置位置ToolStripMenuItem";
-            this.重置位置ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.重置位置ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.重置位置ToolStripMenuItem.Text = "重置位置";
             this.重置位置ToolStripMenuItem.Click += new System.EventHandler(this.重置位置ToolStripMenuItem_Click);
+            // 
+            // 退出ToolStripMenuItem
+            // 
+            this.退出ToolStripMenuItem.Name = "退出ToolStripMenuItem";
+            this.退出ToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.退出ToolStripMenuItem.Text = "退出";
+            this.退出ToolStripMenuItem.Click += new System.EventHandler(this.退出ToolStripMenuItem_Click);
             // 
             // StartButton
             // 
@@ -87,6 +87,7 @@
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "StartButton";
+            this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "StartButton";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.StartButton_FormClosing);

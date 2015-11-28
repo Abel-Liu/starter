@@ -64,19 +64,8 @@ namespace ESTool
     /// </summary>
     public struct AppPos
     {
-        /// <summary>
-        /// 意外情况
-        /// </summary>
-        /// <param name="left"></param>
-        /// <param name="top"></param>
-        public AppPos(double left, double top)
-        {
-            main_left = left;
-            main_top = top;
-            btn_size = -1;
-            btn_x = -1;
-            btn_y = -1;
-        }
+        public reBarInfo rebarInfo;
+
         /// <summary>
         /// 主窗体左边距
         /// </summary>

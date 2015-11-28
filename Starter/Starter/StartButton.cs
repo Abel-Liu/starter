@@ -24,7 +24,7 @@ namespace Starter
         {
             if (m.Msg == API.WM_WININICHANGE)
             {
-                positionSvc.SetAppPos(false);
+                positionSvc.SetAppPos();
             }
 
             base.WndProc(ref m);
@@ -45,7 +45,7 @@ namespace Starter
             Version version = Environment.OSVersion.Version;
             if ( version.Major == 6 && ( version.Minor == 0 || version.Minor == 1 ) )
                 positionSvc = new PositionSvcWin7( this.Handle, mainwindow );
-            else if ( version.Major == 6 && version.Minor == 3 )
+            else if ( version.Major == 6 && version.Minor == 2 )
                 positionSvc = new PositionSvcWin10( this.Handle, mainwindow );
             else
                 positionSvc = new PositionBase( this.Handle, mainwindow );
@@ -98,7 +98,7 @@ namespace Starter
 
         private void 重置位置ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            positionSvc.SetAppPos(true);
+            positionSvc.SetAppPos();
         }
     }
 }

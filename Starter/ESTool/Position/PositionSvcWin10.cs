@@ -19,7 +19,7 @@ namespace ESTool.Position
         {
             base.RemoveButton();
 
-            //reBarInfo rbInfo = API.CalcRebarPos();
+            //reBarInfo rbInfo = CalcRebarPos();
             //API.MoveWindow(rbInfo.hreBar, rbInfo.x, rbInfo.y, rbInfo.width, rbInfo.height, true);
         }
 
@@ -27,91 +27,30 @@ namespace ESTool.Position
         {
             base.InsertButton();
 
-            SetAppPos(true);
-            //API.SetParent(startButtonHandle, API.FindWindow("Shell_TrayWnd", null));
+            SetAppPos();
+            API.SetParent(startButtonHandle, API.FindWindow("Shell_TrayWnd", null));
         }
 
-        public override void SetAppPos(bool moveRebar)
+        public override void SetAppPos()
         {
-            base.SetAppPos(moveRebar);
+            base.SetAppPos();
 
-            //AppPos pos;
-            //reBarInfo rbInfo = CalcAppPos(mainWindow.Height, mainWindow.Width, out pos);
+            AppPos pos = CalcAppPos(mainWindow.Height, mainWindow.Width);
 
-            //if ( moveRebar )
-            //    API.MoveWindow( rbInfo.hreBar, rbInfo.x, rbInfo.y, rbInfo.width, rbInfo.height, true );
+            //API.MoveWindow(pos.rebarInfo.hreBar, pos.rebarInfo.x, pos.rebarInfo.y, pos.rebarInfo.width, pos.rebarInfo.height, true);
 
-            API.MoveWindow( startButtonHandle, 5000, 5000, 40, 40, true );
+            API.MoveWindow(startButtonHandle, 88888, pos.btn_y, pos.btn_size, pos.btn_size, true);
 
-
-            mainWindow.Top = 600;
-            mainWindow.Left = 30;
-        }
-
-        public override void InjectDll()
-        {
-            base.InjectDll();
-
-            //const int MEM_COMMIT = 0x00001000;
-            //const int MEM_RELEASE = 0x8000;
-            //const int PAGE_READWRITE = 0x04;
-            //int temp = 0;
-
-            //int dlllength = System.Text.Encoding.Default.GetByteCount(dllname);
-            //var loadAddr = API.GetProcAddress(API.GetModuleHandleA("Kernel32"), "LoadLibraryA");
-
-            //var ps = Process.GetProcessesByName("explorer");
-
-            //if (ps != null && ps.Length > 0)
-            //{
-            //    process = ps[0];
-            //    int baseaddress = API.VirtualAllocEx(process.Handle, IntPtr.Zero, dlllength, MEM_COMMIT, PAGE_READWRITE);
-            //    if (baseaddress == 0)
-            //        throw new Exception("申请内存空间失败！");
-
-            //    if (API.WriteProcessMemory(process.Handle, baseaddress, dllname, dlllength, temp) == 0)
-            //        throw new Exception("写内存失败！");
-
-            //    var hThread = API.CreateRemoteThread(process.Handle, IntPtr.Zero, 0, new IntPtr(loadAddr), new IntPtr(baseaddress), 0, 0);
-            //    if (hThread == null)
-            //    {
-            //        API.VirtualFreeEx(process.Handle, new IntPtr(baseaddress), dlllength, MEM_RELEASE);
-            //        throw new Exception("创建远程线程失败！");
-            //    }
-            //}
-        }
-
-        public override void UnInjectDll()
-        {
-            base.UnInjectDll();
-
-            //if (process != null)
-            //{
-            //    MODULEENTRY32 stModuleEntry = new MODULEENTRY32();
-            //    bool bFlag = true;
-            //    IntPtr hFindModule = IntPtr.Zero;
-
-            //    stModuleEntry.dwSize = (uint)System.Runtime.InteropServices.Marshal.SizeOf(stModuleEntry);
-
-            //    var hModuleSnap = API.CreateToolhelp32Snapshot(0x00000008, process.Id);
-            //    bFlag = API.Module32First(hModuleSnap, ref stModuleEntry);
-            //    for (; bFlag; )
-            //    {
-            //        if (stModuleEntry.szExePath.ToLower() == dllname.ToLower())
-            //        {
-            //            hFindModule = stModuleEntry.hModule;
-            //            break;
-            //        }
-            //        bFlag = API.Module32Next(hModuleSnap, ref stModuleEntry);
-            //    }
-
-            //    var freeAddr = API.GetProcAddress(API.GetModuleHandleA("Kernel32"), "FreeLibrary");
-            //    API.CreateRemoteThread(process.Handle, IntPtr.Zero, 0, new IntPtr(freeAddr), hFindModule, 0, 0);
-            //}
+            mainWindow.Top = pos.main_top;
+            mainWindow.Left = pos.main_left;
         }
 
 
-        public static reBarInfo CalcAppPos( double height, double width, out AppPos pos )
+        /// <summary>
+        /// 计算rebar正常位置
+        /// </summary>
+        /// <returns></returns>
+        public reBarInfo CalcRebarPos()
         {
             System.Drawing.Rectangle screenRect = System.Windows.Forms.Screen.PrimaryScreen.WorkingArea;
             RECT rcBar, rcTrayBtn, rcStart;
@@ -119,49 +58,161 @@ namespace ESTool.Position
 
             try
             {
-                #region
-                IntPtr hTaskbar = API.FindWindow( "Shell_TrayWnd", null );
-                IntPtr hBar = API.FindWindowEx( hTaskbar, IntPtr.Zero, "ReBarWindow32", null );
-                IntPtr hTray = API.FindWindowEx( hTaskbar, IntPtr.Zero, "TrayNotifyWnd", null );
-                IntPtr hTrayBtn = API.FindWindowEx( hTray, IntPtr.Zero, "Button", null );
-                IntPtr hStart = API.FindWindowEx( hTaskbar, IntPtr.Zero, "Button", null );
-                API.GetWindowRect( hStart, out rcStart );
-                API.GetWindowRect( hBar, out rcBar );
-                API.GetWindowRect( hTrayBtn, out rcTrayBtn );
+                IntPtr hTaskbar = API.FindWindow("Shell_TrayWnd", null);
+                IntPtr hBar = API.FindWindowEx(hTaskbar, IntPtr.Zero, "ReBarWindow32", null);
+                IntPtr hTray = API.FindWindowEx(hTaskbar, IntPtr.Zero, "TrayNotifyWnd", null);
+                IntPtr hTrayBtn = API.FindWindowEx(hTray, IntPtr.Zero, "Button", null);
+                IntPtr hStart = API.FindWindowEx(hTaskbar, IntPtr.Zero, "Button", null);
+                API.GetWindowRect(hStart, out rcStart);
+                API.GetWindowRect(hBar, out rcBar);
+                API.GetWindowRect(hTrayBtn, out rcTrayBtn);
                 rbInfo.hreBar = hBar;
                 rbInfo.hTaskBar = hTaskbar;
 
                 AppBarData taskbarInfo = new AppBarData();
-                API.SHAppBarMessage( 0x00000005, ref taskbarInfo );
-                int max_size = 40;
+                API.SHAppBarMessage(0x00000005, ref taskbarInfo);
 
-                switch ( taskbarInfo.uEdge )
+                switch (taskbarInfo.uEdge)
                 {
-                    #region
-                   
+                    case 0:
+                    case 2:////任务栏在右边
+                        rbInfo.x = 0;
+                        rbInfo.y = rcBar.Left;
+                        rbInfo.height = rcTrayBtn.Top - rbInfo.y;
+                        rbInfo.width = rcBar.Right - rcBar.Left;
+                        break;
+                    case 1:
                     case 3:////任务栏在下边
-                        pos.main_left = taskbarInfo.rc.Left + 30;
-                        pos.main_top = screenRect.Bottom - height - 3;
-                        pos.btn_size = rcBar.Bottom - rcBar.Top > max_size ? max_size : rcBar.Bottom - rcBar.Top;
-                        pos.btn_x = 40;
-                        pos.btn_y = ( rcBar.Bottom - rcBar.Top - pos.btn_size ) / 2;
-
-                        rbInfo.x = pos.btn_x + pos.btn_size;
+                        rbInfo.x = rcBar.Top;
                         rbInfo.y = 0;
                         rbInfo.height = rcBar.Bottom - rcBar.Top;
                         rbInfo.width = rcTrayBtn.Left - rbInfo.x;
                         break;
-                    default:
-                        pos = new AppPos( ( screenRect.Width - width ) / 2, ( screenRect.Height - height ) / 2 );
+                }
+            }
+            catch
+            { }
+
+            return rbInfo;
+        }
+
+        /// <summary>
+        /// 根据任务栏位置计算窗体和主按钮位置
+        /// </summary>
+        /// <param name="mainWindowHeight">主窗体高度</param>
+        /// <param name="mainWindowWidth">主窗体宽度</param>
+        public AppPos CalcAppPos(double mainWindowHeight, double mainWindowWidth)
+        {
+            System.Drawing.Rectangle screenRect = System.Windows.Forms.Screen.PrimaryScreen.WorkingArea;
+            RECT rcBar, rcTrayBtn, rcStart;
+            AppPos pos = new AppPos();
+
+            try
+            {
+                #region
+                IntPtr hTaskbar = API.FindWindow("Shell_TrayWnd", null);
+                IntPtr hBar = API.FindWindowEx(hTaskbar, IntPtr.Zero, "ReBarWindow32", null);
+                IntPtr hTray = API.FindWindowEx(hTaskbar, IntPtr.Zero, "TrayNotifyWnd", null);
+                IntPtr hTrayBtn = API.FindWindowEx(hTray, IntPtr.Zero, "Button", null);
+                IntPtr hStart = API.FindWindowEx(hTaskbar, IntPtr.Zero, "Button", null);
+                API.GetWindowRect(hStart, out rcStart);
+                API.GetWindowRect(hBar, out rcBar);
+                API.GetWindowRect(hTrayBtn, out rcTrayBtn);
+                pos.rebarInfo.hreBar = hBar;
+                pos.rebarInfo.hTaskBar = hTaskbar;
+
+                AppBarData taskbarInfo = new AppBarData();
+                API.SHAppBarMessage(0x00000005, ref taskbarInfo);
+                int max_size = 40;
+
+                switch (taskbarInfo.uEdge)
+                {
+                    #region
+                    //case 0:////任务栏在左边
+                    //    pos.main_left = taskbarInfo.rc.Right + 3;
+                    //    pos.main_top = taskbarInfo.rc.Top + 30;
+                    //    pos.btn_size = rcBar.Right - rcBar.Left > max_size ? max_size : rcBar.Right - rcBar.Left;
+                    //    pos.btn_x = (rcBar.Right - rcBar.Left - pos.btn_size) / 2;
+                    //    pos.btn_y = StartSize;
+
+                    //    pos.rebarInfo.x = 0;
+                    //    pos.rebarInfo.y = pos.btn_y + pos.btn_size;
+                    //    pos.rebarInfo.height = rcTrayBtn.Top - pos.rebarInfo.y;
+                    //    pos.rebarInfo.width = rcBar.Right - rcBar.Left;
+                    //    break;
+                    //case 1:////任务栏在上边
+                    //    pos.main_left = taskbarInfo.rc.Left + 30;
+                    //    pos.main_top = taskbarInfo.rc.Bottom + 3;
+                    //    pos.btn_size = rcBar.Bottom - rcBar.Top > max_size ? max_size : rcBar.Bottom - rcBar.Top;
+                    //    pos.btn_x = StartSize;
+                    //    pos.btn_y = (rcBar.Bottom - rcBar.Top - pos.btn_size) / 2;
+
+                    //    pos.rebarInfo.x = pos.btn_x + pos.btn_size;
+                    //    pos.rebarInfo.y = 0;
+                    //    pos.rebarInfo.height = rcBar.Bottom - rcBar.Top;
+                    //    pos.rebarInfo.width = rcTrayBtn.Left - pos.rebarInfo.x;
+                    //    break;
+                    //case 2:////任务栏在右边
+                    //    pos.main_left = screenRect.Right - mainWindowWidth - 3;
+                    //    pos.main_top = taskbarInfo.rc.Top + 30;
+                    //    pos.btn_size = rcBar.Right - rcBar.Left > max_size ? max_size : rcBar.Right - rcBar.Left;
+                    //    pos.btn_x = (rcBar.Right - rcBar.Left - pos.btn_size) / 2;
+                    //    pos.btn_y = StartSize;
+
+                    //    pos.rebarInfo.x = 0;
+                    //    pos.rebarInfo.y = pos.btn_y + pos.btn_size;
+                    //    pos.rebarInfo.height = rcTrayBtn.Top - pos.rebarInfo.y;
+                    //    pos.rebarInfo.width = rcBar.Right - rcBar.Left;
+                    //    break;
+                    case 3:////任务栏在下边
+                        pos.main_left = taskbarInfo.rc.Left + 30;
+                        pos.main_top = screenRect.Bottom - mainWindowHeight - 3;
+                        pos.btn_size = (rcBar.Bottom - rcBar.Top) > max_size ? max_size : (rcBar.Bottom - rcBar.Top);
+                        pos.btn_x = rcBar.Left;
+                        pos.btn_y = (rcBar.Bottom - rcBar.Top - pos.btn_size) / 2;
+
+                        pos.rebarInfo.x = rcBar.Left + pos.btn_size;
+                        pos.rebarInfo.y = 0;
+                        pos.rebarInfo.height = rcBar.Bottom - rcBar.Top;
+                        pos.rebarInfo.width = rcTrayBtn.Left - pos.rebarInfo.x;
                         break;
-                    #endregion
+                    default:
+                        pos = new AppPos()
+                        {
+                            main_left = (screenRect.Width - mainWindowWidth) / 2,
+                            main_top = (screenRect.Height - mainWindowHeight) / 2,
+                            btn_size = -1,
+                            btn_x = -1,
+                            btn_y = -1
+                        };
+                        break;
+                        #endregion
                 }
                 #endregion
             }
             catch
-            { pos = new AppPos( ( screenRect.Width - width ) / 2, ( screenRect.Height - height ) / 2 ); }
+            {
+                pos = new AppPos()
+                {
+                    main_left = (screenRect.Width - mainWindowWidth) / 2,
+                    main_top = (screenRect.Height - mainWindowHeight) / 2,
+                    btn_size = -1,
+                    btn_x = -1,
+                    btn_y = -1
+                };
+            }
 
-            return rbInfo;
+            return pos;
+        }
+
+        public override void InjectDll()
+        {
+
+        }
+
+        public override void UnInjectDll()
+        {
+
         }
     }
 }
