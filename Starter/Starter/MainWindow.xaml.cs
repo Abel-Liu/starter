@@ -167,6 +167,10 @@ namespace Starter
                     else
                         ks.Show();
                 }
+                else if (wParam.ToInt32() == 106)
+                {
+                    StartButton.positionSvc.SetAppPos();
+                }
 
             }
             else if (msg == API.WM_QUERYENDSESSION)
@@ -588,7 +592,7 @@ namespace Starter
                     this.Deactivated += new EventHandler(Window_Deactivated);
                     break;
                 case "反馈":
-                    
+
                     break;
                 case "退出":
                     closeFlag = "exit";

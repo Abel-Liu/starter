@@ -18,7 +18,7 @@ namespace Starter
     public partial class StartButton : Form
     {
         MainWindow mainwindow;
-        PositionBase positionSvc;
+        public static PositionBase positionSvc;
 
         protected override void WndProc(ref Message m)
         {
@@ -34,7 +34,7 @@ namespace Starter
         {
             InitializeComponent();
 
-            mainwindow = new MainWindow( 6000 );
+            mainwindow = new MainWindow(6000);
             mainwindow.Show();
 
             InitPositionSvc();
@@ -43,12 +43,12 @@ namespace Starter
         void InitPositionSvc()
         {
             Version version = Environment.OSVersion.Version;
-            if ( version.Major == 6 && ( version.Minor == 0 || version.Minor == 1 ) )
-                positionSvc = new PositionSvcWin7( this.Handle, mainwindow );
-            else if ( version.Major == 6 && version.Minor == 2 )
-                positionSvc = new PositionSvcWin10( this.Handle, mainwindow );
+            if (version.Major == 6 && (version.Minor == 0 || version.Minor == 1))
+                positionSvc = new PositionSvcWin7(this.Handle, mainwindow);
+            else if (version.Major == 6 && version.Minor == 2)
+                positionSvc = new PositionSvcWin10(this.Handle, mainwindow);
             else
-                positionSvc = new PositionBase( this.Handle, mainwindow );
+                positionSvc = new PositionBase(this.Handle, mainwindow);
         }
 
         private void StartButton_Load(object sender, EventArgs e)
@@ -59,6 +59,7 @@ namespace Starter
             //API.RegisterHotKey(new System.Windows.Interop.WindowInteropHelper(mainwindow).Handle, 101, KeyModifiers.Ctrl, System.Windows.Forms.Keys.Left);
             //API.RegisterHotKey(new System.Windows.Interop.WindowInteropHelper(mainwindow).Handle, 102, KeyModifiers.Ctrl, System.Windows.Forms.Keys.Right);
             API.RegisterHotKey(new System.Windows.Interop.WindowInteropHelper(mainwindow).Handle, 105, KeyModifiers.Alt, System.Windows.Forms.Keys.R);
+            API.RegisterHotKey(new System.Windows.Interop.WindowInteropHelper(mainwindow).Handle, 106, KeyModifiers.Alt, System.Windows.Forms.Keys.A);
 
             try
             {
@@ -74,6 +75,7 @@ namespace Starter
         {
             API.UnregisterHotKey(new System.Windows.Interop.WindowInteropHelper(mainwindow).Handle, 100);
             API.UnregisterHotKey(new System.Windows.Interop.WindowInteropHelper(mainwindow).Handle, 105);
+            API.UnregisterHotKey(new System.Windows.Interop.WindowInteropHelper(mainwindow).Handle, 106);
 
             positionSvc.UnInjectDll();
             positionSvc.RemoveButton();
