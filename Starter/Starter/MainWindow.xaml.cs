@@ -574,11 +574,6 @@ namespace Starter
                     setForm.ShowDialog();
                     this.Deactivated += new EventHandler(Window_Deactivated);
                     break;
-                case "导入图标":
-                    this.Deactivated -= new EventHandler(Window_Deactivated);
-                    //new ImportLnk(this).ShowDialog();
-                    this.Deactivated += new EventHandler(Window_Deactivated);
-                    break;
                 case "帮助":
                     this.Deactivated -= new EventHandler(Window_Deactivated);
                     Help h = new Help(this);
@@ -590,9 +585,6 @@ namespace Starter
                     About aboutForm = new About(this);
                     aboutForm.ShowDialog();
                     this.Deactivated += new EventHandler(Window_Deactivated);
-                    break;
-                case "反馈":
-
                     break;
                 case "退出":
                     closeFlag = "exit";
@@ -627,25 +619,6 @@ namespace Starter
         #endregion
 
         #region 其他事件
-        //关机按钮
-        private void labelShutDown_MouseEnter_1(object sender, MouseEventArgs e)
-        {
-            labelShutDown.BorderThickness = new Thickness(1);
-        }
-        private void labelShutDown_MouseLeave_1(object sender, MouseEventArgs e)
-        {
-            labelShutDown.BorderThickness = new Thickness(0);
-        }
-        private void labelShutDown_MouseLeftButtonDown_1(object sender, MouseButtonEventArgs e)
-        {
-            labelShutDown.BorderThickness = new Thickness(2);
-        }
-        private void labelShutDown_MouseLeftButtonUp_1(object sender, MouseButtonEventArgs e)
-        {
-            labelShutDown.BorderThickness = new Thickness(1);
-
-        }
-
 
         //private void LR_MouseEnter(object sender, MouseEventArgs e)
         //{

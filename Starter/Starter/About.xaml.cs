@@ -67,7 +67,7 @@ namespace Starter
         private void link_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.MouseLeftButtonDown -= new MouseButtonEventHandler(Window_MouseLeftButtonDown_1);
-            System.Diagnostics.Process.Start("www.easystarter.icoc.cc");
+            System.Diagnostics.Process.Start( "https://github.com/Abel-Liu/starter" );
             this.MouseLeftButtonDown += new MouseButtonEventHandler(Window_MouseLeftButtonDown_1);
         }
     }

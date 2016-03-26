@@ -23,22 +23,16 @@
     <Border Name="mainBorder" BorderBrush="DarkGray"  BorderThickness="2" CornerRadius="13">
         <Grid>
             <!--菜单-->
-            <Border BorderThickness="0" CornerRadius="10" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,25,95,0" Height="152" Width="70">
+            <Border BorderThickness="0" CornerRadius="10" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,25,95,0" Height="79" Width="70">
                 <StackPanel Name="menugrid" Background="Black" >
                     <Border BorderThickness="2,1,2,0" MouseEnter="menuItem_MouseEnter" MouseLeave="menuItem_MouseLeave" MouseLeftButtonDown="menuItem_MouseLeftButtonDown" MouseLeftButtonUp="menuItem_MouseLeftButtonUp">
                         <Label Name="menuSet" Style="{StaticResource labelOfMenu}" Content="设置" MouseLeftButtonUp="menuItemClick" ></Label>
                     </Border>
-                    <Border BorderThickness="2,0,2,0" MouseEnter="menuItem_MouseEnter" MouseLeave="menuItem_MouseLeave" MouseLeftButtonDown="menuItem_MouseLeftButtonDown" MouseLeftButtonUp="menuItem_MouseLeftButtonUp">
-                        <Label Name="menuImport" Style="{StaticResource labelOfMenu}" Content="导入图标" MouseLeftButtonUp="menuItemClick" ></Label>
-                    </Border>
-                    <Border BorderThickness="2,0,2,0" MouseEnter="menuItem_MouseEnter" MouseLeave="menuItem_MouseLeave" MouseLeftButtonDown="menuItem_MouseLeftButtonDown" MouseLeftButtonUp="menuItem_MouseLeftButtonUp">
+                    <!--<Border BorderThickness="2,0,2,0" MouseEnter="menuItem_MouseEnter" MouseLeave="menuItem_MouseLeave" MouseLeftButtonDown="menuItem_MouseLeftButtonDown" MouseLeftButtonUp="menuItem_MouseLeftButtonUp">
                         <Label Name="menuHelp" Style="{StaticResource labelOfMenu}" Content="帮助" MouseLeftButtonUp="menuItemClick" ></Label>
-                    </Border>
+                    </Border>-->
                     <Border BorderThickness="2,0,2,0" MouseEnter="menuItem_MouseEnter" MouseLeave="menuItem_MouseLeave" MouseLeftButtonDown="menuItem_MouseLeftButtonDown" MouseLeftButtonUp="menuItem_MouseLeftButtonUp">
                         <Label Name="menuAbout" Style="{StaticResource labelOfMenu}" Content="关于" MouseLeftButtonUp="menuItemClick" ></Label>
-                    </Border>
-                    <Border BorderThickness="2,0,2,0" MouseEnter="menuItem_MouseEnter" MouseLeave="menuItem_MouseLeave" MouseLeftButtonDown="menuItem_MouseLeftButtonDown" MouseLeftButtonUp="menuItem_MouseLeftButtonUp">
-                        <Label Name="menuFeedback" Style="{StaticResource labelOfMenu}" Content="反馈" MouseLeftButtonUp="menuItemClick" ></Label>
                     </Border>
                     <Border BorderThickness="2,0,2,1" MouseEnter="menuItem_MouseEnter" MouseLeave="menuItem_MouseLeave" MouseLeftButtonDown="menuItem_MouseLeftButtonDown" MouseLeftButtonUp="menuItem_MouseLeftButtonUp">
                         <Label Name="menuExit"  Style="{StaticResource labelOfMenu}" Content="退出" MouseLeftButtonUp="menuItemClick" ></Label>
@@ -55,7 +49,6 @@
             <Grid Name="maingrid"  HorizontalAlignment="Center" Width="600" VerticalAlignment="Bottom" Margin="0,0,0,40" Height="360"></Grid>
             <Grid Name="pagingGrid" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="500"  Height="30"></Grid>
 
-            <Label Name="labelShutDown" Content="关机" BorderBrush="DarkGray" Width="50" Height="29" Margin="10,0,0,6" Foreground="#FFADACFF" HorizontalAlignment="Left" VerticalAlignment="Bottom" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" MouseEnter="labelShutDown_MouseEnter_1" MouseLeave="labelShutDown_MouseLeave_1" MouseLeftButtonDown="labelShutDown_MouseLeftButtonDown_1" MouseLeftButtonUp="labelShutDown_MouseLeftButtonUp_1"/>
             <!--<Label Name="labelNext" Content="→" BorderBrush="DarkGray" Width="30" Height="25" Margin="0,0,3,6" Foreground="#FFADACFF" HorizontalAlignment="Right" VerticalAlignment="Bottom" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" MouseEnter="LR_MouseEnter" MouseLeave="LR_MouseLeave" MouseLeftButtonDown="LR_MouseLeftButtonDown" MouseLeftButtonUp="LR_MouseLeftButtonUp"/>
             <Label Name="labelPre" Content="←" BorderBrush="DarkGray" Width="30" Height="25" Margin="0,0,33,6" Foreground="#FFADACFF" HorizontalAlignment="Right" VerticalAlignment="Bottom" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" MouseEnter="LR_MouseEnter" MouseLeave="LR_MouseLeave" MouseLeftButtonDown="LR_MouseLeftButtonDown" MouseLeftButtonUp="LR_MouseLeftButtonUp"/>-->
         

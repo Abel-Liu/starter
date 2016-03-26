@@ -12,16 +12,9 @@
             <TabControl Background="Black" Height="220" Width="370" Margin="0,30,0,0" VerticalAlignment="Top" >
                 <TabItem  Header="常规">
                     <Grid Background="Black">
-                        <CheckBox Name="checkBoxBoot"      FontSize="13" Content="开机启动"        Foreground="#FFA89DA3" HorizontalAlignment="Left" Margin="90,65,0,0" VerticalAlignment="Top"  />
-                        <CheckBox Name="checkBoxrightmenu" FontSize="13" Content="添加到右键菜单"   Foreground="#FFA89DA3" HorizontalAlignment="Left" Margin="90,105,0,0" VerticalAlignment="Top" />
-                        <CheckBox Name="checkBoxsend"      FontSize="13" Content="自动发送错误报告" Foreground="#FFA89DA3" HorizontalAlignment="Left" Margin="90,145,0,0" VerticalAlignment="Top" />
-                        <Label FontSize="13" Content="关机按钮功能"  Foreground="#FFA89DA3" Width="89" Height="25" Margin="85,25,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-                        <ComboBox Name="cboxShutdown" Width="52" FontSize="13" Margin="175,27,0,0" HorizontalAlignment="Left" VerticalAlignment="Top">
-                            <ComboBoxItem Content="关机"/>
-                            <ComboBoxItem Content="重启"/>
-                            <ComboBoxItem Content="休眠"/>
-                            <ComboBoxItem Content="睡眠"/>
-                        </ComboBox>
+                        <CheckBox Name="checkBoxBoot"      FontSize="13" Content="开机启动"        Foreground="#FFA89DA3" HorizontalAlignment="Left" Margin="90,45,0,0" VerticalAlignment="Top"  />
+                        <CheckBox Name="checkBoxrightmenu" FontSize="13" Content="添加到右键菜单"   Foreground="#FFA89DA3" HorizontalAlignment="Left" Margin="90,85,0,0" VerticalAlignment="Top" />
+                        <CheckBox Name="checkBoxsend"      FontSize="13" Content="自动发送错误报告" Foreground="#FFA89DA3" HorizontalAlignment="Left" Margin="90,125,0,0" VerticalAlignment="Top" />
                     </Grid>
                 </TabItem>
                 <TabItem Header="热键">
