@@ -225,14 +225,12 @@ namespace Starter
             menugrid.Visibility = Visibility.Hidden;
             this.Left = left_margin;
 
-            if (RegWork.CheckFirstRun())
-            {
-                if (false)
-                {
-                    MyWork.startExePath.CheckRegRun();
-                    MyWork.startExePath.AddRegMenu();
-                }
-            }
+            //if (RegWork.CheckFirstRun())
+            //{
+            //    MyWork.startExePath.CheckRegRun();
+            //    MyWork.startExePath.AddRegMenu();
+            //}
+
             if (!File.Exists(Path.Combine(MyWork.StartDir, "data.xml")))
                 new XElement("Data").Save(Path.Combine(MyWork.StartDir, "data.xml"));
 
@@ -409,7 +407,7 @@ namespace Starter
             }
             catch (Exception ee)
             {
-                MyWork.NoteLog(ee);
+                //MyWork.NoteLog(ee);
             }
         }
         void moveleftWhenDel_Tick(object sender, EventArgs e)
@@ -433,7 +431,7 @@ namespace Starter
             }
             catch (Exception ee)
             {
-                MyWork.NoteLog(ee);
+                //MyWork.NoteLog(ee);
             }
         }
         void moveright_Tick(object sender, EventArgs e)//向前翻页
@@ -457,7 +455,7 @@ namespace Starter
             }
             catch (Exception ee)
             {
-                MyWork.NoteLog(ee);
+                //MyWork.NoteLog(ee);
             }
         }
         void moveleft_Tick(object sender, EventArgs e)//向后翻页
@@ -481,7 +479,7 @@ namespace Starter
             }
             catch (Exception ee)
             {
-                MyWork.NoteLog(ee);
+                //MyWork.NoteLog(ee);
             }
         }
 
@@ -502,7 +500,7 @@ namespace Starter
             }
             catch (Exception ee)
             {
-                MyWork.NoteLog(ee);
+                //MyWork.NoteLog(ee);
             }
         }
         private void adddir_Click(object sender, RoutedEventArgs e)//右键菜单--添加文件夹
@@ -519,7 +517,9 @@ namespace Starter
                 }
                 this.Deactivated += new EventHandler(Window_Deactivated);
             }
-            catch (Exception ee) { MyWork.NoteLog(ee); }
+            catch (Exception ee)
+            { //MyWork.NoteLog(ee); 
+            }
         }
         private void addpanle_Click(object sender, RoutedEventArgs e)/// 右键菜单--添加新面板
         {
@@ -574,12 +574,6 @@ namespace Starter
                     setForm.ShowDialog();
                     this.Deactivated += new EventHandler(Window_Deactivated);
                     break;
-                case "帮助":
-                    this.Deactivated -= new EventHandler(Window_Deactivated);
-                    Help h = new Help(this);
-                    h.ShowDialog();
-                    this.Deactivated += new EventHandler(Window_Deactivated);
-                    break;
                 case "关于":
                     this.Deactivated -= new EventHandler(Window_Deactivated);
                     About aboutForm = new About(this);
@@ -613,7 +607,7 @@ namespace Starter
             }
             catch (Exception ee)
             {
-                MyWork.NoteLog(ee);
+                //MyWork.NoteLog(ee);
             }
         }
         #endregion
@@ -867,7 +861,7 @@ namespace Starter
             }
             catch (Exception ee)
             {
-                MyWork.NoteLog(ee);
+                //MyWork.NoteLog(ee);
             }
         }
         /// <summary>
@@ -892,7 +886,7 @@ namespace Starter
             }
             catch (Exception ee)
             {
-                MyWork.NoteLog(ee);
+                //MyWork.NoteLog(ee);
             }
         }
         /// <summary>
@@ -911,7 +905,7 @@ namespace Starter
             }
             catch (Exception ee)
             {
-                MyWork.NoteLog(ee);
+                //MyWork.NoteLog(ee);
             }
         }
 
@@ -1053,7 +1047,7 @@ namespace Starter
             }
             catch (Exception ee)
             {
-                MyWork.NoteLog(ee);
+                //MyWork.NoteLog(ee);
             }
         }
         /// <summary>
@@ -1150,7 +1144,7 @@ namespace Starter
             }
             catch (Exception ee)
             {
-                MyWork.NoteLog(ee);
+                //MyWork.NoteLog(ee);
                 return null;
             }
         }
@@ -1177,7 +1171,7 @@ namespace Starter
             }
             catch (Exception ee)
             {
-                MyWork.NoteLog(ee);
+                //MyWork.NoteLog(ee);
             }
         }
         #endregion

@@ -28,9 +28,6 @@
                     <Border BorderThickness="2,1,2,0" MouseEnter="menuItem_MouseEnter" MouseLeave="menuItem_MouseLeave" MouseLeftButtonDown="menuItem_MouseLeftButtonDown" MouseLeftButtonUp="menuItem_MouseLeftButtonUp">
                         <Label Name="menuSet" Style="{StaticResource labelOfMenu}" Content="设置" MouseLeftButtonUp="menuItemClick" ></Label>
                     </Border>
-                    <!--<Border BorderThickness="2,0,2,0" MouseEnter="menuItem_MouseEnter" MouseLeave="menuItem_MouseLeave" MouseLeftButtonDown="menuItem_MouseLeftButtonDown" MouseLeftButtonUp="menuItem_MouseLeftButtonUp">
-                        <Label Name="menuHelp" Style="{StaticResource labelOfMenu}" Content="帮助" MouseLeftButtonUp="menuItemClick" ></Label>
-                    </Border>-->
                     <Border BorderThickness="2,0,2,0" MouseEnter="menuItem_MouseEnter" MouseLeave="menuItem_MouseLeave" MouseLeftButtonDown="menuItem_MouseLeftButtonDown" MouseLeftButtonUp="menuItem_MouseLeftButtonUp">
                         <Label Name="menuAbout" Style="{StaticResource labelOfMenu}" Content="关于" MouseLeftButtonUp="menuItemClick" ></Label>
                     </Border>

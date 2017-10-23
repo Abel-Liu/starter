@@ -69,6 +69,11 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Support Files\Abel.WindowsShell.dll</HintPath>
     </Reference>
+    <Reference Include="Interop.IWshRuntimeLibrary, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <HintPath>..\..\..\starter\Interop.IWshRuntimeLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -93,27 +98,28 @@
     <Compile Include="About.xaml.cs">
       <DependentUpon>About.xaml</DependentUpon>
     </Compile>
-    <Compile Include="BugReport.xaml.cs">
-      <DependentUpon>BugReport.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Dal.cs" />
-    <Compile Include="Help.xaml.cs">
-      <DependentUpon>Help.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ItemControl.xaml.cs">
+    <Compile Include="Lib\API.cs" />
+    <Compile Include="Lib\Dal.cs" />
+    <Compile Include="Controls\ItemControl.xaml.cs">
       <DependentUpon>ItemControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="KeyboardStart.xaml.cs">
       <DependentUpon>KeyboardStart.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Lib\ESstruct.cs" />
+    <Compile Include="Lib\FileWork.cs" />
+    <Compile Include="Lib\Position\PositionBase.cs" />
+    <Compile Include="Lib\Position\PositionSvcWin10.cs" />
+    <Compile Include="Lib\Position\PositionSvcWin7.cs" />
+    <Compile Include="Lib\RegWork.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MyWork.cs" />
-    <Compile Include="PageControl.xaml.cs">
+    <Compile Include="Lib\MyWork.cs" />
+    <Compile Include="Controls\PageControl.xaml.cs">
       <DependentUpon>PageControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PanelControl.xaml.cs">
+    <Compile Include="Controls\PanelControl.xaml.cs">
       <DependentUpon>PanelControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Setting.xaml.cs">
@@ -135,15 +141,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="BugReport.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Help.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="ItemControl.xaml">
+    <Page Include="Controls\ItemControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -159,11 +157,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PageControl.xaml">
+    <Page Include="Controls\PageControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="PanelControl.xaml">
+    <Page Include="Controls\PanelControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -230,12 +228,6 @@
     <Resource Include="Images\skin1.png" />
     <Resource Include="Images\skin2.png" />
     <Resource Include="Images\skin3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ESTool\ESTool.csproj">
-      <Project>{BBFE0C37-3BCA-4F14-B12D-4BF3526205B4}</Project>
-      <Name>ESTool</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="icon.ico" />

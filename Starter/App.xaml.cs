@@ -12,6 +12,7 @@ namespace Starter
             System.Windows.Forms.Application.Exit();
             base.OnExit(e);
         }
+
         protected override void OnStartup(StartupEventArgs e)
         {
             bool createNew;

@@ -28,16 +28,5 @@ namespace Starter
        
         #endregion
 
-        /// <summary>
-        /// 记录异常信息
-        /// </summary>
-        /// <param name="e">异常信息</param>
-        public static void NoteLog(Exception e)
-        {
-            new BugReport(e).ShowDialog();
-            MainWindow.closeFlag = "shut";
-            System.Windows.Application.Current.Shutdown();
-        }
-
     }
 }
