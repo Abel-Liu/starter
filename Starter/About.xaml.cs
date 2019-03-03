@@ -58,12 +58,7 @@ namespace Starter
         {
             this.closebutton.Source = CloseBtStyle[2];
         }
-
-        private void ook_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
-        }
-
+        
         private void link_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             this.MouseLeftButtonDown -= new MouseButtonEventHandler(Window_MouseLeftButtonDown_1);

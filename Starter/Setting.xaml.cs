@@ -38,14 +38,11 @@ namespace Starter
             MyWork.ConfigPath.ReadSetting(out tempSet);
             checkBoxBoot.IsChecked = tempSet.Boot;
             checkBoxrightmenu.IsChecked = tempSet.SysRightMenu;
-            checkBoxsend.IsChecked = tempSet.SendBug;
             #region
             this.checkBoxBoot.Checked += new RoutedEventHandler(checkBoxBoot_Checked);
             this.checkBoxBoot.Unchecked += new RoutedEventHandler(checkBoxBoot_Unchecked);
             this.checkBoxrightmenu.Checked += new RoutedEventHandler(checkBoxrightmenu_Checked);
             this.checkBoxrightmenu.Unchecked += new RoutedEventHandler(checkBoxrightmenu_Unchecked);
-            this.checkBoxsend.Checked+=new RoutedEventHandler(checkBoxsend_Checked);
-            this.checkBoxsend.Unchecked+=new RoutedEventHandler(checkBoxsend_Unchecked);
             #endregion
             //this.textBox1.Text = tempSet.HotKey;
             ImageBrush b = new ImageBrush();

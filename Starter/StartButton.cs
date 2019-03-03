@@ -58,7 +58,7 @@ namespace Starter
             API.RegisterHotKey(new System.Windows.Interop.WindowInteropHelper(mainwindow).Handle, 100, KeyModifiers.Alt, System.Windows.Forms.Keys.Q);
             //API.RegisterHotKey(new System.Windows.Interop.WindowInteropHelper(mainwindow).Handle, 101, KeyModifiers.Ctrl, System.Windows.Forms.Keys.Left);
             //API.RegisterHotKey(new System.Windows.Interop.WindowInteropHelper(mainwindow).Handle, 102, KeyModifiers.Ctrl, System.Windows.Forms.Keys.Right);
-            API.RegisterHotKey(new System.Windows.Interop.WindowInteropHelper(mainwindow).Handle, 105, KeyModifiers.Alt, System.Windows.Forms.Keys.R);
+            //API.RegisterHotKey(new System.Windows.Interop.WindowInteropHelper(mainwindow).Handle, 105, KeyModifiers.Alt, System.Windows.Forms.Keys.R);
             API.RegisterHotKey(new System.Windows.Interop.WindowInteropHelper(mainwindow).Handle, 106, KeyModifiers.Alt, System.Windows.Forms.Keys.A);
 
             try
@@ -74,7 +74,7 @@ namespace Starter
         private void StartButton_FormClosing(object sender, FormClosingEventArgs e)
         {
             API.UnregisterHotKey(new System.Windows.Interop.WindowInteropHelper(mainwindow).Handle, 100);
-            API.UnregisterHotKey(new System.Windows.Interop.WindowInteropHelper(mainwindow).Handle, 105);
+            //API.UnregisterHotKey(new System.Windows.Interop.WindowInteropHelper(mainwindow).Handle, 105);
             API.UnregisterHotKey(new System.Windows.Interop.WindowInteropHelper(mainwindow).Handle, 106);
 
             positionSvc.UnInjectDll();

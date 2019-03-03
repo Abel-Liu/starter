@@ -140,6 +140,7 @@ namespace Starter
             }
             else if (msg == API.WM_HOTKEY)
             {
+                //激活窗口
                 if (wParam.ToInt32() == 100)
                 {
                     if (this.IsActive)
@@ -150,23 +151,24 @@ namespace Starter
                     else
                         this.Show();
                 }
-                else if (wParam.ToInt32() == 101)
-                {
-                    if (!moveleft.IsEnabled && !moveright.IsEnabled)
-                        moveleft.IsEnabled = true;
-                }
-                else if (wParam.ToInt32() == 102)
-                {
-                    if (!moveleft.IsEnabled && !moveright.IsEnabled)
-                        moveright.IsEnabled = true;
-                }
-                else if (wParam.ToInt32() == 105)
-                {
-                    if (ks.IsActive)
-                        ks.Hide();
-                    else
-                        ks.Show();
-                }
+                //else if (wParam.ToInt32() == 101)
+                //{
+                //    if (!moveleft.IsEnabled && !moveright.IsEnabled)
+                //        moveleft.IsEnabled = true;
+                //}
+                //else if (wParam.ToInt32() == 102)
+                //{
+                //    if (!moveleft.IsEnabled && !moveright.IsEnabled)
+                //        moveright.IsEnabled = true;
+                //}
+                //else if (wParam.ToInt32() == 105)
+                //{
+                //    if (ks.IsActive)
+                //        ks.Hide();
+                //    else
+                //        ks.Show();
+                //}
+                //重置位置
                 else if (wParam.ToInt32() == 106)
                 {
                     StartButton.positionSvc.SetAppPos();

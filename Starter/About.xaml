@@ -5,7 +5,6 @@
     <Border Name="border" Background="Black" BorderThickness="0" CornerRadius="7">
         <Grid>
             <Image Name="closebutton" MouseLeftButtonUp="closebutton_MouseLeftButtonUp"  MouseEnter="closebutton_MouseEnter"  MouseLeave="closebutton_MouseLeave"  MouseLeftButtonDown="closebutton_MouseLeftButtonDown"  Width="40" Height="20" HorizontalAlignment="Right" Margin="0,5,5,0" VerticalAlignment="Top"/>
-            <Button Name="ook" Style="{StaticResource btn}" Click="ook_Click"  Content="确定" HorizontalAlignment="Right" Margin="0,0,15,10" VerticalAlignment="Bottom" Width="70" Height="20"/>
             <RichTextBox BorderThickness="0" Foreground="White" Background="{x:Null}" Name="richtext" VerticalAlignment="Top" Margin="2,60,0,0" Height="160" Width="360" IsReadOnly="True" HorizontalAlignment="Center" HorizontalContentAlignment="Left" VerticalScrollBarVisibility="Auto">
                 <FlowDocument>
                     <Paragraph>
